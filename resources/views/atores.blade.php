@@ -9,8 +9,16 @@
 </head>
 
 <body>
-    <h1>Ator: {{ $nome }}</h1>
-    Esta view é para apresentar os dados do ator.
+    <h1>Atores</h1>
+    <ul>
+        @foreach ($atores as $ator)
+            <li>{{ $ator->nome }}</li>
+            <li>{{ $ator->nacionalidade }}</li>
+            <li>{{ date('d/m/Y', strtoTime($ator->dt_nascimento)) }}</li>
+            <li>{{ date('d/m/Y', strtoTime($ator->inicio_atividades)) }}</li>
+            <br />
+        @endforeach
+    </ul>
 </body>
 
 </html>
