@@ -11,6 +11,7 @@
 |
 */
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -27,3 +28,7 @@ Route::get('atores', 'AtoresController@index');
 Route::get('teste', function () {
     return view('teste');
 });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
