@@ -1,17 +1,61 @@
 @extends('adminlte::page')
 
+@section('title', 'Atores')
+
 @section('content')
-    <h1>Atores</h1>
+    <div class="ribbon-wrapper" style='position: absolute; z-index: 99999999'>
+        <div class="ribbon bg-primary">
+            Dev
+        </div>
+    </div>
+    <header style='display: flex; justify-content: space-between; align-items: center; padding: 16px 0px'>
+        <h1>Atores</h1>
+        <button class='btn btn-primary'onclick="window.location.href = '/atores/create'">Adicionar
+            ator</button>
+    </header>
+    <div style='display: flex; gap: 16px'>
+        <div class="small-box bg-info" style='flex: 1'>
+            <div class="inner">
+                <h3>3</h3>
+                <p>Quantidade de atores</p>
+            </div>
+            <div class="icon">
+                <i class="fas fa-users"></i>
+            </div>
+        </div>
+        <div class="small-box bg-info bg-gradient-success" style='flex: 1'>
+            <div class="inner">
+                <h3>Norte-americana</h3>
+                <p>Maior nacionalidade</p>
+            </div>
+            <div class="icon">
+                <i class="fas fa-flag"></i>
+            </div>
+        </div>
+        <div class="small-box bg-info bg-gradient-purple" style='flex: 1'>
+            <div class="inner">
+                <h3>10</h3>
+                <p>Lorem ipsum dolor</p>
+            </div>
+            <div class="icon">
+                <i class="fas fa-shopping-cart"></i>
+            </div>
+        </div>
+    </div>
     <table class='table table-stripe table-bordered table-hover'>
         <thead>
             <th>Nome</th>
             <th>Data de nascimento</th>
+            <th>Nacionalidade</th>
+            <th>Iniciação</th>
         </thead>
         <tbody>
             @foreach ($atores as $ator)
                 <tr>
                     <td>{{ $ator->nome }}</td>
-                    <td>{{ $ator->dt_nascimento }}</td>
+                    <td>{{ date('d/m/Y', strtoTime($ator->dt_nascimento)) }}</td>
+                    <td>{{ $ator->nacionalidade }}</td>
+                    <td>{{ date('d/m/Y', strtoTime($ator->inicio_atividades)) }}</td>
                 </tr>
             @endforeach
     </table>

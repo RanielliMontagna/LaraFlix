@@ -24,6 +24,8 @@ Route::get('atores', function () {
 });
 
 Route::get('atores', 'AtoresController@index');
+Route::get('atores/create', 'AtoresController@create');
+Route::post('atores/store', 'AtoresController@store');
 
 Route::get('teste', function () {
     return view('teste');

@@ -290,22 +290,22 @@ return [
     */
 
     'menu' => [
-        ['header' => 'ATORES'],
+        // ['header' => 'ATORES'],
+        // [
+        //     'text' => 'Listagem',
+        //     'url' => 'atores',
+        //     'icon' => 'fas fa-fw fa-users'
+        // ]
+        // Navbar items:
         [
-            'text' => 'Listagem',
-            'url' => 'atores',
-            'icon' => 'fas fa-fw fa-users'
-        ]
-        // // Navbar items:
-        // [
-        //     'type'         => 'navbar-search',
-        //     'text'         => 'search',
-        //     'topnav_right' => true,
-        // ],
-        // [
-        //     'type'         => 'fullscreen-widget',
-        //     'topnav_right' => true,
-        // ],
+            'type'         => 'navbar-search',
+            'text'         => 'search',
+            'topnav_right' => true,
+        ],
+        [
+            'type'         => 'fullscreen-widget',
+            'topnav_right' => true,
+        ],
 
         // // Sidebar items:
         // [
