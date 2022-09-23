@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Ator;
-use Illuminate\Http\Request;
+use App\Http\Requests\AtorRequest;
 
 class AtoresController extends Controller
 {
@@ -24,10 +24,29 @@ class AtoresController extends Controller
         return view('atores.create');
     }
 
-    public function store(Request $request)
+    public function store(AtorRequest $request)
     {
         $novo_ator = $request->all();
         Ator::create($novo_ator);
-        return redirect('atores');
+
+        return redirect()->route('atores');
+    }
+
+    public function destroy($id)
+    {
+        Ator::find($id)->delete();
+        return redirect()->route('atores');
+    }
+
+    public function edit($id)
+    {
+        $ator = Ator::find($id);
+        return view('atores.edit', compact('ator'));
+    }
+
+    public function update(AtorRequest $request, $id)
+    {
+        Ator::find($id)->update($request->all());
+        return redirect()->route('atores');
     }
 }

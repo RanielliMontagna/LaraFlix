@@ -1,8 +1,8 @@
 @extends('adminlte::page')
 
 @section('content')
-    <h3>Novo ator</h3>
-    {!! Form::open(['route' => 'atores.store']) !!}
+    <h3>Editando ator</h3>
+    {!! Form::open(['route' => ['atores.update', 'id' => $ator->id], 'method' => 'put']) !!}
 
     @if ($errors->any())
         <ul class="alert alert-danger">
@@ -14,7 +14,7 @@
 
     <div class="form-group">
         {!! Form::label('nome', 'Nome:') !!}
-        {!! Form::text('nome', null, ['class' => 'form-control', 'required']) !!}
+        {!! Form::text('nome', $ator->nome, ['class' => 'form-control', 'required']) !!}
     </div>
 
     <div class="form-group">
@@ -27,7 +27,7 @@
                 'CAN' => 'Canadense',
                 'ARG' => 'Argentino',
             ],
-            'BRA',
+            $ator->nacionalidade,
             [
                 'class' => 'form-control',
                 'required',
@@ -37,16 +37,16 @@
 
     <div class="form-group">
         {!! Form::label('dt_nascimento', 'Data de nascimento:') !!}
-        {!! Form::date('dt_nascimento', null, ['class' => 'form-control', 'required']) !!}
+        {!! Form::date('dt_nascimento', $ator->dt_nascimento, ['class' => 'form-control', 'required']) !!}
     </div>
 
     <div class="form-group">
         {!! Form::label('inicio_atividades', 'Início de atividades:') !!}
-        {!! Form::date('inicio_atividades', null, ['class' => 'form-control', 'required']) !!}
+        {!! Form::date('inicio_atividades', $ator->inicio_atividades, ['class' => 'form-control', 'required']) !!}
     </div>
 
     <div class="form-group">
-        {!! Form::submit('Criar ator', ['class' => 'btn btn-primary']) !!}
+        {!! Form::submit('Editar ator', ['class' => 'btn btn-primary']) !!}
         {!! Form::reset('Limpar', ['class' => 'btn btn-default']) !!}
         {!! Form::button('Voltar', ['class' => 'btn btn-default', 'onclick' => 'window.history.back()']) !!}
     </div>

@@ -48,6 +48,7 @@
             <th>Data de nascimento</th>
             <th>Nacionalidade</th>
             <th>Iniciação</th>
+            <th>Ações</th>
         </thead>
         <tbody>
             @foreach ($atores as $ator)
@@ -56,6 +57,10 @@
                     <td>{{ date('d/m/Y', strtoTime($ator->dt_nascimento)) }}</td>
                     <td>{{ $ator->nacionalidade }}</td>
                     <td>{{ date('d/m/Y', strtoTime($ator->inicio_atividades)) }}</td>
+                    <td>
+                        <a href="{{ route('atores.edit', ['id' => $ator->id]) }}" class='btn btn-primary'>Editar</a>
+                        <a href="{{ route('atores.destroy', ['id' => $ator->id]) }}" class='btn btn-danger'>Excluir</a>
+                    </td>
                 </tr>
             @endforeach
     </table>
