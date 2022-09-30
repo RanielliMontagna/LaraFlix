@@ -27,12 +27,19 @@ class AppServiceProvider extends ServiceProvider
     public function boot(Dispatcher $events)
     {
         $events->listen(BuildingMenu::class, function (BuildingMenu $event) {
-            $event->menu->add('ATORES');
+            $event->menu->add('LISTAGENS');
             $event->menu->add([
-                'text' => 'Listagem',
+                'text' => 'Atores',
                 'url' => 'atores',
                 'icon' => 'fas fa-fw fa-user',
                 'label' => Ator::count(),
+                'label_color' => 'success',
+            ]);
+            $event->menu->add([
+                'text' => 'Nacionalidades',
+                'url' => 'nacionalidades',
+                'icon' => 'fas fa-fw fa-flag',
+                'label' => \App\Nacionalidade::count(),
                 'label_color' => 'success',
             ]);
         });

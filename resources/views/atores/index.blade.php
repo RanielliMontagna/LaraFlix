@@ -1,4 +1,4 @@
-@extends('adminlte::page')
+@extends('layouts.default')
 
 @section('title', 'Atores')
 
@@ -59,12 +59,19 @@
                     <td>{{ date('d/m/Y', strtoTime($ator->inicio_atividades)) }}</td>
                     <td>
                         <a href="{{ route('atores.edit', ['id' => $ator->id]) }}" class='btn btn-primary'>Editar</a>
-                        <a href="{{ route('atores.destroy', ['id' => $ator->id]) }}" class='btn btn-danger'>Excluir</a>
+                        <a href="#" onclick="return ConfirmaExclusao({{ $ator->id }})"
+                            class='btn btn-danger'>Excluir</a>
                     </td>
                 </tr>
             @endforeach
     </table>
+
+    {{ $atores->links() }}
 @stop
+
+@section('table-delete')
+    "atores"
+@endsection
 
 {{-- <!DOCTYPE html>
 <html lang="en">

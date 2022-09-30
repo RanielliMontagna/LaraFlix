@@ -1,23 +1,23 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">Dashboard</div>
+    <div
+        style='display: flex; justify-content: center; align-items: center; height: calc(100vh - 109px); flex-direction: column '>
+        <h1>
+            Bem vindos ao sistema <b>LaraFlix</b>
+        </h1>
+        <h2 style='font-size: 1rem; '>
+            Feito com <b>{{ config('app.name') }}</b>
+        </h2>
+        <p style='font-size: 1.5rem; margin-top: 2rem;'>
+            O sistema consiste em um CRUD de atores onde é possível cadastrar, editar, excluir e listar atores.
+        </p>
 
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
+        <p>
+            <a href="{{ route('atores') }}" class='btn btn-primary' style='margin-top: 2rem;'>
+                Acessar atores
+            </a>
+        </p>
 
-                    You are logged in!
-                </div>
-            </div>
-        </div>
     </div>
-</div>
 @endsection
